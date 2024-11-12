@@ -1,6 +1,7 @@
 body {
   background-color: hsl(185, 41%, 84%);
   height: 100vh;
+  box-sizing: border-box;
 }
 
 .App {
@@ -10,13 +11,8 @@ body {
   align-items: center;
 }
 
-.title {
+.logo {
   padding: 8rem 0px 3rem 0px;
-}
-
-.title h1 {
-  color: hsl(186, 14%, 43%);
-  letter-spacing: 5px;
 }
 
 .container-main {
@@ -33,7 +29,89 @@ body {
   width: 550px;
   height: 90%;
   margin: 1.5rem 0 1.5rem 1.5rem;
-  background-color: red;
+}
+
+.input-bill {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.input-bill label,
+.select-btns p,
+.input-people label {
+  padding-bottom: 0.3rem;
+  font-weight: 600;
+  color: hsl(186, 14%, 43%);
+}
+.input-img {
+  display: flex;
+  align-items: center;
+}
+.input-img img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  position: absolute;
+  padding-left: 1rem;
+}
+.input-img input,
+.input-people input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid hsl(185, 41%, 84%);
+  border-radius: 5px;
+  text-align: end;
+  font-size: 18px;
+  background-color: hsl(185, 41%, 84%);
+}
+.input-img input:hover,
+.input-people input:hover {
+  cursor: pointer;
+  border: 1px solid hsl(172, 67%, 45%);
+}
+.select-btns {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem 2rem;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 0.2rem;
+}
+
+.btns input {
+  width: 150px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  background-color: hsl(183, 100%, 15%);
+}
+.btns input:hover {
+  cursor: pointer;
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
+}
+.btns input:nth-child(6) {
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(186, 14%, 43%);
+}
+.btns input:nth-child(6):hover {
+  background-color: white;
+  color: hsl(183, 100%, 15%);
+  border: 1px solid hsl(172, 67%, 45%);
+}
+
+.input-people {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3rem 2rem;
 }
 
 .card-total {
@@ -50,11 +128,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 90px;
 }
 
 .amount-title {
   padding-left: 3rem;
+  padding-top: 3rem;
 }
 .amount-title h2 {
   font-size: 18px;
@@ -67,18 +146,19 @@ body {
 .amount span {
   font-size: 42px;
   padding-right: 2rem;
+  padding-top: 3.5rem;
   font-weight: bold;
   color: hsl(172, 67%, 45%);
 }
 
 .card-total button {
-    width: 80%;
-    height: 40px;
-    margin: 0 auto;
-    margin-top: 8.5rem;
-    border: none;
-    border-radius: 5px;
-    background-color: hsl(172, 67%, 45%);
-    color:  hsl(183, 100%, 15%);
-    font-weight: bold;
+  width: 80%;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 9.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  font-weight: bold;
 }

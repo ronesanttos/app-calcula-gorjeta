@@ -4,22 +4,28 @@ const Main = () => {
       <div className="card-bill">
         <div className="input-bill">
           <label htmlFor="bill">Bill</label>
-          <input type="number" id="bill" placeholder="$ " />
+          <div className="input-img">
+            <img src="../../public/images/icon-dollar.svg" alt="dolar" />
+            <input type="number" id="bill" placeholder="0 " />
+          </div>
         </div>
         <div className="select-btns">
-          <p>Select Tip</p>
+          <p>Select Tip %</p>
           <div className="btns">
-            <input type="button" value={"5%"}/>
-            <input type="button" value={"10%"}/>
-            <input type="button" value={"15%"}/>
-            <input type="button" value={"25%"}/>
-            <input type="button" value={"50%"}/>
-            <input type="submit" value="Custom"/>
+            <input type="button" value={"5%"} />
+            <input type="button" value={"10%"} />
+            <input type="button" value={"15%"} />
+            <input type="button" value={"25%"} />
+            <input type="button" value={"50%"} />
+            <input type="submit" value="Custom" />
           </div>
         </div>
         <div className="input-people">
-            <label htmlFor="people">Number of People</label>
-            <input type="number"  placeholder="aqui"/>
+          <label htmlFor="people">Number of People</label>
+          <div className="input-img">
+            <img src="../../public/images/icon-person.svg" alt="person" />
+            <input type="number" placeholder="0" />
+          </div>
         </div>
       </div>
 

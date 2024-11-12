@@ -4,9 +4,8 @@ import Main from "./components/Main";
 function App() {
   return (
     <div className="App">
-      <div className="title">
-        <h1>SPLI</h1>
-        <h1>TTER</h1>
+      <div className="logo">
+        <img src="../public/images/logo.svg" alt="logo" />
       </div>
       <Main />
     </div>
