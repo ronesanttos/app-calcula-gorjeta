@@ -1,42 +1,84 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  background-color: hsl(185, 41%, 84%);
+  height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  padding: 8rem 0px 3rem 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.title h1 {
+  color: hsl(186, 14%, 43%);
+  letter-spacing: 5px;
 }
 
-.card {
-  padding: 2em;
+.container-main {
+  width: 1000px;
+  height: 450px;
+  border-radius: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.read-the-docs {
-  color: #888;
+.card-bill {
+  width: 550px;
+  height: 90%;
+  margin: 1.5rem 0 1.5rem 1.5rem;
+  background-color: red;
+}
+
+.card-total {
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  height: 90%;
+  border-radius: 10px;
+  margin: 1.5rem 1.5rem 1.5rem 0;
+  background-color: hsl(183, 100%, 15%);
+}
+
+.amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.amount-title {
+  padding-left: 3rem;
+}
+.amount-title h2 {
+  font-size: 18px;
+  color: white;
+}
+.amount-title p {
+  color: hsl(184, 14%, 56%);
+  font-weight: 600;
+}
+.amount span {
+  font-size: 42px;
+  padding-right: 2rem;
+  font-weight: bold;
+  color: hsl(172, 67%, 45%);
+}
+
+.card-total button {
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 8.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(172, 67%, 45%);
+    color:  hsl(183, 100%, 15%);
+    font-weight: bold;
 }
