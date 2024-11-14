@@ -82,6 +82,7 @@ body {
   padding-top: 0.2rem;
 }
 
+.btns button,
 .btns input {
   width: 150px;
   height: 50px;
@@ -93,7 +94,10 @@ body {
   color: white;
   background-color: hsl(183, 100%, 15%);
 }
-.btns input:hover {
+.btns input {
+  text-align: center;
+}
+.btns button:hover {
   cursor: pointer;
   color: hsl(183, 100%, 15%);
   background-color: hsl(172, 67%, 45%);
