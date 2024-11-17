@@ -37,7 +37,7 @@ body {
   padding: 2rem;
 }
 .input-bill label,
-.select-btns p,
+.select-btns span,
 .input-people label {
   padding-bottom: 0.3rem;
   font-weight: 600;
@@ -88,7 +88,7 @@ body {
   height: 50px;
   margin-bottom: 1.2rem;
   border-radius: 5px;
-  border: none;
+  border: 1px solid transparent;
   font-weight: bold;
   font-size: 20px;
   color: white;
@@ -103,6 +103,7 @@ body {
   background-color: hsl(172, 67%, 45%);
 }
 .btns input:nth-child(6) {
+  cursor: pointer;
   background-color: hsl(185, 41%, 84%);
   color: hsl(186, 14%, 43%);
 }
@@ -165,4 +166,71 @@ body {
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
   font-weight: bold;
+}
+
+.msg {
+  display: flex;
+  justify-content: space-between;
+}
+
+.msg p {
+  color: red;
+}
+
+.error,
+.error input:hover {
+  width: 100%;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .container-main {
+    width: 460px;
+    height: 700px;
+    flex-direction: column;
+  }
+  .card-bill {
+    width: 460px;
+    height: 40%;
+    margin: 0px;
+  }
+  .btns button,
+  .btns input {
+    width: 190px;
+  }
+  .card-total{
+    justify-content: space-around;
+    width: 430px;
+    height: 30%;
+    margin: 1rem;
+
+  }
+  .amount {
+    height: 30px;
+  }
+  .amount-title {
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+
+  }
+  .amount-title h2 {
+    font-size: 18px;
+    color: white;
+  }
+  .amount-title p {
+    color: hsl(184, 14%, 56%);
+    font-weight: 600;
+  }
+  .amount span {
+    font-size: 32px;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    font-weight: bold;
+    color: hsl(172, 67%, 45%);
+
+  }
+  .card-total button {
+    margin-top: 2rem;
+  }
 }

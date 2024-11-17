@@ -3,41 +3,50 @@ import { useEffect, useState } from "react";
 const Main = () => {
   const [bill, setBill] = useState(0);
   const [taxa, setTaxa] = useState(0);
-  const [custom, setCustom] = useState();
   const [peoples, setPeoples] = useState(0);
   const [valorDividido, setValorDividido] = useState(0);
   const [total, setTotal] = useState(0);
 
-  const [msg, setMsg] = useState(false);
+  const [msg, setMsg] = useState("");
 
   const calc = (b1, t2, p3) => {
+    if (!b1 || !t2 || !p3) {
+      setMsg("Can't be zero");
+      return;
+    }
+
     let valor = (b1 * t2) / 100;
     let taxa = valor / p3;
     let total = b1 / p3 + taxa;
     setValorDividido(taxa);
     setTotal(total);
+    setMsg("");
   };
 
   const reset = () => {
-    setBill("")
-    setCustom("")
-    setTaxa("")
-    setPeoples("")
-    setValorDividido("")
-    setTotal("")
-  }
+    setBill("");
+    setTaxa("");
+    setPeoples("");
+    setValorDividido("");
+    setTotal("");
+    setMsg("");
+  };
 
   useEffect(() => {
     setBill("");
     setPeoples("");
+    setTaxa("");
   }, []);
 
   return (
     <div className="container-main">
       <div className="card-bill">
         <div className="input-bill">
-          <label htmlFor="bill">Bill</label>
-          <div className="input-img">
+          <div className="msg">
+            <label htmlFor="bill">Bill</label>
+            {msg && <p>{msg}</p>}
+          </div>
+          <div className={msg ? "input-img error" : "input-img"}>
             <img src="../../public/images/icon-dollar.svg" alt="dolar" />
             <input
               type="number"
@@ -49,7 +58,10 @@ const Main = () => {
           </div>
         </div>
         <div className="select-btns">
-          <p>Select Tip %</p>
+          <div className="msg">
+            <span>Select Tip %</span>
+            {msg && <p>{msg}</p>}
+          </div>
           <div className="btns">
             <button value={"5"} onClick={(e) => setTaxa(e.target.value)}>
               5%
@@ -70,12 +82,21 @@ const Main = () => {
               {" "}
               50%{" "}
             </button>
-            <input type="number" value={custom} placeholder="Custom" />
+            <input
+              type="number"
+              value={taxa}
+              onChange={(e) => setTaxa(e.target.value)}
+              placeholder="Custom"
+            />
           </div>
         </div>
         <div className="input-people">
-          <label htmlFor="people">Number of People</label>
-          <div className="input-img">
+          <div className="msg">
+            <label htmlFor="people">Number of People</label>
+            {msg && <p>{msg}</p>}
+          </div>
+
+          <div className={msg ? "input-img error" : "input-img"}>
             <img src="../../public/images/icon-person.svg" alt="person" />
             <input
               type="number"
