@@ -2,18 +2,35 @@ import { useEffect, useState } from "react";
 
 const Main = () => {
   const [bill, setBill] = useState(0);
-  const [taxa, setTaxa] = useState(["5", "10", "15", "25", "50"]);
+  const [taxa, setTaxa] = useState(0);
   const [custom, setCustom] = useState();
   const [peoples, setPeoples] = useState(0);
-  const [valor, setValor] = useState(0);
-  const handleCalcular = (e) => {
-    if (e.target.value) {
-      let valor = (bill * e.target.value) / 100;
-      let valorDividido = valor / peoples;
-      setValor(valorDividido);
-    }
+  const [valorDividido, setValorDividido] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  const [msg, setMsg] = useState(false);
+
+  const calc = (b1, t2, p3) => {
+    let valor = (b1 * t2) / 100;
+    let taxa = valor / p3;
+    let total = b1 / p3 + taxa;
+    setValorDividido(taxa);
+    setTotal(total);
   };
-console.log(valor)
+
+  const reset = () => {
+    setBill("")
+    setCustom("")
+    setTaxa("")
+    setPeoples("")
+    setValorDividido("")
+    setTotal("")
+  }
+
+  useEffect(() => {
+    setBill("");
+    setPeoples("");
+  }, []);
 
   return (
     <div className="container-main">
@@ -34,31 +51,26 @@ console.log(valor)
         <div className="select-btns">
           <p>Select Tip %</p>
           <div className="btns">
-            <button value={`${taxa[0]}`} onClick={handleCalcular}>
+            <button value={"5"} onClick={(e) => setTaxa(e.target.value)}>
               5%
             </button>
-            <button value={`${taxa[1]}`} onClick={handleCalcular}>
+            <button value={"10"} onClick={(e) => setTaxa(e.target.value)}>
               {" "}
               10%
             </button>
-            <button value={`${taxa[2]}`} onClick={handleCalcular}>
+            <button value={"15"} onClick={(e) => setTaxa(e.target.value)}>
               {" "}
               15%
             </button>
-            <button value={`${taxa[3]}`} onClick={handleCalcular}>
+            <button value={"25"} onClick={(e) => setTaxa(e.target.value)}>
               {" "}
               25%
             </button>
-            <button value={`${taxa[4]}`} onClick={handleCalcular}>
+            <button value={"50"} onClick={(e) => setTaxa(e.target.value)}>
               {" "}
               50%{" "}
             </button>
-            <input
-              type="number"
-              value={custom}
-              onChange={handleCalcular}
-              placeholder="Custom"
-            />
+            <input type="number" value={custom} placeholder="Custom" />
           </div>
         </div>
         <div className="input-people">
@@ -81,7 +93,7 @@ console.log(valor)
             <h2>Tip Amount</h2>
             <p>/ person</p>
           </div>
-          <span className="price">$4.27</span>
+          <span className="price">${valorDividido}</span>
         </div>
 
         <div className="amount">
@@ -89,9 +101,13 @@ console.log(valor)
             <h2>Total</h2>
             <p>/ person</p>
           </div>
-          <span className="price">$32.79</span>
+          <span className="price">${total}</span>
         </div>
-        <button>RESET</button>
+        {!total ? (
+          <button onClick={() => calc(bill, taxa, peoples)}>Calcular</button>
+        ) : (
+          <button onClick={() => reset()}>Reset</button>
+        )}
       </div>
     </div>
   );
