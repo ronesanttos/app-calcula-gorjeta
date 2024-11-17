@@ -47,7 +47,7 @@ const Main = () => {
             {msg && <p>{msg}</p>}
           </div>
           <div className={msg ? "input-img error" : "input-img"}>
-            <img src="../../public/images/icon-dollar.svg" alt="dolar" />
+            <img src="/images/icon-dollar.svg" alt="dolar" />
             <input
               type="number"
               id="bill"
@@ -97,7 +97,7 @@ const Main = () => {
           </div>
 
           <div className={msg ? "input-img error" : "input-img"}>
-            <img src="../../public/images/icon-person.svg" alt="person" />
+            <img src="/images/icon-person.svg" alt="person" />
             <input
               type="number"
               placeholder="0"
